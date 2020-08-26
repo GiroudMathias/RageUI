@@ -382,6 +382,12 @@ function RageUI.Visible(Menu, Value)
     end
 end
 
+function RageUI.AnyIsVisible()
+    if RageUI.CurrentMenu ~= nil then
+        return RageUI.CurrentMenu.Open
+    end
+end
+
 function RageUI.CloseAll()
     if RageUI.CurrentMenu ~= nil then
         local parent = RageUI.CurrentMenu.Parent
