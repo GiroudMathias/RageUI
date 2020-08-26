@@ -487,7 +487,6 @@ function RageUI.Description()
     if CurrentMenu ~= nil and CurrentMenu.Description ~= nil then
         if CurrentMenu() then
             RageUI.ItemsSafeZone(CurrentMenu)
-            RenderRectangle(CurrentMenu.X, CurrentMenu.Y + Description.Bar.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, Description.Bar.Width + CurrentMenu.WidthOffset, Description.Bar.Height, 0, 0, 0, 255)
             RenderSprite(Description.Background.Dictionary, Description.Background.Texture, CurrentMenu.X, CurrentMenu.Y + Description.Background.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, Description.Background.Width + CurrentMenu.WidthOffset, CurrentMenu.DescriptionHeight, 0, 0, 0, 255)
             RenderText(CurrentMenu.Description, CurrentMenu.X + Description.Text.X, CurrentMenu.Y + Description.Text.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, 0, Description.Text.Scale, 255, 255, 255, 255, nil, false, false, Description.Background.Width + CurrentMenu.WidthOffset - 8.0)
             RageUI.ItemOffset = RageUI.ItemOffset + CurrentMenu.DescriptionHeight + Description.Bar.Y
@@ -563,9 +562,9 @@ function RageUI.ItemsDescription(CurrentMenu, Description, Selected)
             ---@type number
             local DescriptionLineCount = GetLineCount(CurrentMenu.Description, CurrentMenu.X + SettingsDescription.Text.X, CurrentMenu.Y + SettingsDescription.Text.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, 0, SettingsDescription.Text.Scale, 255, 255, 255, 255, nil, false, false, SettingsDescription.Background.Width + (CurrentMenu.WidthOffset - 8.0))
             if DescriptionLineCount > 1 then
-                CurrentMenu.DescriptionHeight = SettingsDescription.Background.Height * DescriptionLineCount + 3.5
+                CurrentMenu.DescriptionHeight = SettingsDescription.Background.Height * DescriptionLineCount + 7
             else
-                CurrentMenu.DescriptionHeight = SettingsDescription.Background.Height + 7
+                CurrentMenu.DescriptionHeight = SettingsDescription.Background.Height + 14
             end
         end
     end
